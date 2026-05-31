@@ -6,7 +6,7 @@ metadata:
 spec:
   project: demo-project
   source:
-    repoURL: REPLACE_WITH_GIT_REPO_URL
+    repoURL: https://github.com/WilliamJohnathonLea/GitOps.git
     targetRevision: master
     path: apps/demo
   destination:
