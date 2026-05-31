@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: demo-project
+  namespace: argocd
+spec:
+  description: AppProject for demo apps deployed to Minikube demo namespace
+  sourceRepos:
+    - "*"
+  destinations:
+    - namespace: demo
+      server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
