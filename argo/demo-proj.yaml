@@ -13,3 +13,6 @@ spec:
   namespaceResourceWhitelist:
     - group: "*"
       kind: "*"
+  clusterResourceWhitelist: # Allows CreateNamespace=true
+    - group: ""
+      kind: Namespace
