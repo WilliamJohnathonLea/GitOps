@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-	name: demo-app
-	namespace: demo
+  name: demo-app
+  namespace: demo
 spec:
-	replicas: 1
-	selector:
-		matchLabels:
-			app: demo-app
-	template:
-		metadata:
-			labels:
-				app: demo-app
-		spec:
-			containers:
-				- name: demo-app
-					image: hashicorp/http-echo:0.2.3
-					args:
-						- "-text=demo-app"
-						- "-listen=:8080"
-					ports:
-						- containerPort: 8080
-							name: http
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+    spec:
+      containers:
+        - name: demo-app
+          image: hashicorp/http-echo:0.2.3
+          args:
+            - "-text=demo-app"
+            - "-listen=:8080"
+          ports:
+            - containerPort: 8080
+              name: http
