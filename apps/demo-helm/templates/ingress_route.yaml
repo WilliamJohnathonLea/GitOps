@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`{{ .Values.app_name }}-{{ .Values.environment }}`)
+    - match: Host(`{{ .Values.app_name }}-{{ .Values.environment }}.localhost`)
       kind: Rule
       services:
         - name: {{ .Values.app_name }}-{{ .Values.environment }}
