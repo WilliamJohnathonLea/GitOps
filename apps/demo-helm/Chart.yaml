@@ -1,2 +1,3 @@
-apiVersion: 4.2.8
+apiVersion: v2
 name: demo-helm
+version: 1.0.0

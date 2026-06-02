@@ -1,4 +1,4 @@
-app_name: demo_app
+app_name: demo-app
 image_version: 0.2.3
 container_port: 8080
 echo_text: Hello world!

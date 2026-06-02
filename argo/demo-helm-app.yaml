@@ -13,8 +13,8 @@ spec:
     path: apps/demo-helm
     helm:
       releaseName: demo-helm
-      values:
-        - "base_values.yaml"
+      values: # Add overrides here
+        - "dev.yaml"
   destination:
     server: https://kubernetes.default.svc
     namespace: demo
