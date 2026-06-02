@@ -1,1 +1,2 @@
+environment: dev
 echo_text: Hello dev!

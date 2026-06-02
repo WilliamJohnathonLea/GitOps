@@ -1,4 +1,5 @@
 app_name: demo-helm-app
+environment: NOT_SET
 image_version: 0.2.3
 container_port: 8080
 echo_text: Hello world!
