@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: demo-app
+  name: demo-helm-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -13,7 +13,7 @@ spec:
     path: apps/demo-helm
     helm:
       releaseName: demo-helm
-      values: # Add overrides here
+      valueFiles: # Add overrides here
         - "dev.yaml"
   destination:
     server: https://kubernetes.default.svc
