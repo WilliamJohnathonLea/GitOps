@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.app_name }}-{{ .Values.environment }}
+  namespace: demo
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`name: {{ .Values.app_name }}-{{ .Values.environment }}`)
+      kind: Rule
+      services:
+        - name: name: {{ .Values.app_name }}-{{ .Values.environment }}
+          port: 80
