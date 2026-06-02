@@ -11,7 +11,7 @@ spec:
           - environment: qa
   template:
     metadata:
-      name: demo-helm-app
+      name: demo-helm-app-{{environment}}
       namespace: argocd
       finalizers:
         - resources-finalizer.argocd.argoproj.io
