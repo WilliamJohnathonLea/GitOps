@@ -1,3 +1,3 @@
 environment: qa
-replicas: 5
+replicas: 2
 echo_text: Hello qa!
