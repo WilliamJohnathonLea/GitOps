@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: demo-rollouts-app
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - environment: dev
+  template:
+    metadata:
+      name: demo-rollouts-app-{{environment}}
+      namespace: argocd
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: demo-project
+      source:
+        repoURL: https://github.com/WilliamJohnathonLea/GitOps.git
+        targetRevision: master
+        path: apps/demo-rollouts
+        helm:
+          releaseName: demo-rollouts
+          valueFiles: # Add overrides here
+            - "{{environment}}.yaml"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: demo
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

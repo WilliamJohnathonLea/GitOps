@@ -1,0 +1,6 @@
+app_name: demo-rollouts-app
+environment: NOT_SET
+image_version: 0.2.3
+container_port: 8080
+replicas: 1
+echo_text: Hello world!
