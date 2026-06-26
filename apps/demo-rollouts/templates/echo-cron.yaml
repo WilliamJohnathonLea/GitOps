@@ -1,20 +1,18 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello
+  name: ping-{{ .Values.app_name }}-{{ .Values.environment }}
   namespace: demo
 spec:
-  schedule: "* * * * *"
+  schedule: "* * * * *"   # Every minute
   jobTemplate:
     spec:
       template:
         spec:
+          restartPolicy: Never
           containers:
-          - name: hello
-            image: busybox:1.28
-            imagePullPolicy: IfNotPresent
-            command:
-            - /bin/sh
-            - -c
-            - curl http://{{ .Values.app_name }}-{{ .Values.environment }}
-          restartPolicy: OnFailure
+          - name: curl
+            image: curlimages/curl:8.8.0
+            args:
+              - "-f" # Fail on HTTP >= 400
+              - "http://{{ .Values.app_name }}-{{ .Values.environment }}/"
