@@ -7,7 +7,6 @@ spec:
   schedule: "* * * * *"   # Every minute
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
-  ttlSecondsAfterFinished: 300 # Deletes finished jobs after five minutes
   jobTemplate:
     spec:
       template:
